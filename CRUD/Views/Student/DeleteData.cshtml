@@ -1,0 +1,90 @@
+﻿@model CRUDDemo.Models.Student
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete Details by id</title>
+    <link rel="stylesheet" href="~/Content/ShowAllStudentDetails.css" />
+
+</head>
+<body>
+    
+    
+    @using (Html.BeginForm())
+    {
+    <h3 class="title">Delete Student Details</h3><br />
+        <table border = "3" style = "border-collapse:collapse; padding-top:15px;" class="table" >
+        
+            
+        
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.StudentName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.StudentClass)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.StudentClass)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.StudentAge)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.StudentAge)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.StudentGender)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.StudentGender)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.HomeCity)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.HomeCity)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.EmailId)
+            </td>
+        </tr>
+    </table>
+
+    <p>
+        <input type="submit" value="Delete" onclick="return confirm('Are you sure to delete the data?')" class="submit-btn" />
+    </p>
+    }
+    <div  class="redirect-link">
+        @Html.ActionLink("Back to Records", "ShowAllStudentDetails")
+    </div>
+
+</body>
+</html>

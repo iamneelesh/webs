@@ -1,0 +1,86 @@
+﻿@model CRUDDemo.Models.Student
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>InsertStudent</title>
+    <link rel="stylesheet" href="~/Content/ShowAllStudentDetails.css" />
+    <script>
+    function ResetFormWithJS() {
+            document.querySelector("[asp-for='Name']").value = "";
+        }</script>
+</head>
+<body>
+    
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <h3 class="title">Insert Student Details</h3>
+        <div class="container1">
+            <div class="row">
+                <div class="col">
+
+
+                    <div class="inputBox">
+                        <span style="font-size: 17px; padding-left: 5px;">@Html.LabelFor(model => model.StudentName)</span>
+                        @Html.EditorFor(model => model.StudentName, new { htmlAttributes = new { @class = "custom-editor"} })
+                        @Html.ValidationMessageFor(model => model.StudentName)
+                    </div>
+
+                    <div class="inputBox">
+                        <span style="font-size: 17px; padding-left: 5px;">@Html.LabelFor(model => model.StudentClass)</span>
+                        @Html.EditorFor(model => model.StudentClass, new { htmlAttributes = new { @class = "custom-editor" } })
+                        @Html.ValidationMessageFor(model => model.StudentClass)
+                    </div>
+
+                    <div class="inputBox">
+                        <span style="font-size: 17px; padding-left: 5px;">@Html.LabelFor(model => model.StudentAge)</span>
+                        @Html.EditorFor(model => model.StudentAge, new { htmlAttributes = new { @class = "custom-editor" } })
+                        @Html.ValidationMessageFor(model => model.StudentAge)
+                    </div>
+
+                    <div class="inputBox">
+                        <span style="font-size: 17px; padding-left: 5px;">@Html.LabelFor(model => model.StudentGender)</span>
+                        @Html.EditorFor(model => model.StudentGender, new { htmlAttributes = new { @class = "custom-editor" } })
+                        @Html.ValidationMessageFor(model => model.StudentGender)
+                    </div>
+
+                    <div class="inputBox">
+                        <span style="font-size: 17px; padding-left: 5px;">@Html.LabelFor(model => model.PhoneNumber)</span>
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "custom-editor" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber)
+                    </div>
+
+                    <div class="inputBox">
+                        <span style="font-size:17px; padding-left:5px;">@Html.LabelFor(model => model.HomeCity)</span>
+                        @Html.EditorFor(model => model.HomeCity, new { htmlAttributes = new { @class = "custom-editor" } })
+                        @Html.ValidationMessageFor(model => model.HomeCity)
+                    </div>
+
+                    <div class="inputBox">
+                        <span style="font-size: 17px; padding-left: 5px;">@Html.LabelFor(model => model.EmailId)</span>
+                        @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @class = "custom-editor" } })
+                        @Html.ValidationMessageFor(model => model.EmailId)
+                    </div>
+
+                </div>
+                <div class="submit-reset">
+                    <input type="submit" value="Submit" class="submit-btn" />
+                    <input type="reset" value="Reset" class="submit-btn" onclick="ResetFormWithJS();" />
+                </div>
+
+
+            </div>
+        </div>
+
+    }
+    <div class="redirect-link">
+        @Html.ActionLink("Back to Records", "ShowAllStudentDetails")
+    </div>
+
+</body>
+</html>
+

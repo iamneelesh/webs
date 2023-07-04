@@ -1,0 +1,83 @@
+﻿@model CRUDDemo.Models.Student
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Show Detials by id</title>
+</head>
+<body>
+    
+    <br />
+    <br />
+    <table border="2" style="border-collapse:collapse">
+        <legend>Student Details By ID</legend>
+        <br />
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.StudentName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.StudentClass)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.StudentClass)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.StudentAge)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.StudentAge)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.StudentGender)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.StudentGender)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.HomeCity)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.HomeCity)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.EmailId)
+            </td>
+        </tr>
+
+
+
+
+    </table>
+    <div>
+        @Html.ActionLink("Back to Records", "ShowAllStudentDetails")
+    </div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+﻿@model CRUDDemo.Models.Student
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Show Details</title>
+    <link rel="stylesheet" href="~/Content/ShowAllStudentDetails.css"/>
+</head>
+<body>
+    
+    <div>
+        
+        <div class="con">
+            <div style="font-size:1.4em;font-weight:bold">
+                @Html.ActionLink("Add New Student", "InsertStudent", new { htmlAttributes = new { @class = "new-registration-link" } })
+
+            </div>
+            @using (Html.BeginForm())
+            {
+
+        <div class="drop-down">
+            <label for="SelectOption" class="SelectOption">Search:&nbsp; </label>            
+            @Html.DropDownList("SelectOption", new List<SelectListItem>
+                {
+                new SelectListItem { Text = "Name", Value = "StudentName"},
+                new SelectListItem { Text = "Class", Value = "StudentClass"},
+                new SelectListItem { Text = "Age", Value = "StudentAge"}
+                }, "Select", new { @class = "Select-option-menu"  })
+        </div>
+
+                <div class="drop-down" id="drop-down-search">
+                    @Html.TextBox("searchTerm", null)
+                    
+                </div>
+                <div class="drop-down" id="drop-down-search">
+                    <input type="submit" value="Search" class="search-btn" />
+                </div>
+            }
+        </div>
+        
+        <br />
+        <table border="3" align="center" style="border-collapse:collapse" class="table">
+
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Class
+                </th>
+                <th>
+                    Age
+                </th>
+                <th>
+                    Gender
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th>
+                    Home City
+                </th>
+                <th>
+                    Email-Id
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+
+            @if (Model.listStudents.Count == 0)
+            {
+                <tr>
+                    <td colspan="8">
+                        <p >
+                            Sorry, currently no student is registered.<span class="redirect-link-1">@Html.ActionLink("Click Here", "InsertStudent")</span> to register new Student.
+                        </p>
+                    </td>
+                </tr>
+            }
+            
+            @foreach (var item in Model.listStudents)
+                {
+
+
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StudentName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StudentClass)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StudentAge)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StudentGender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HomeCity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmailId)
+                        </td>
+                        <td>
+                            <p class="edit-delete-link-p">
+                                <span class="edit-delete-link">@Html.ActionLink("Edit", "UpdateData", new { StudentId = item.StudentId }, new { htmlAttributes = new { @class = "edit-delete-link" } })</span> |
+                                <span class="edit-delete-link">@Html.ActionLink("Delete", "DeleteData", new { StudentId = item.StudentId }, new { htmlAttributes = new { @class = "edit-delete-link" } })</span>
+                            </p>
+                        </td>
+                    </tr>
+                }
+        </table>
+    </div>
+</body>
+</html>
